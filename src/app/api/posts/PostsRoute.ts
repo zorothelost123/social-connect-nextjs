@@ -23,6 +23,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const supabase = createClient();
   const userId = await getCurrentUserId();
   if (!userId) return jsonError("Unauthorized", 401);
 
@@ -36,7 +37,7 @@ export async function POST(request: Request) {
   const image = formData.get("image");
   if (image instanceof File && image.size > 0) {
     try {
-      imageUrl = await uploadImage(image, "posts");
+      imageUrl = await uploadImage(image, "posts", supabase);
     } catch (error) {
       return jsonError(
         error instanceof Error ? error.message : "Image upload failed.",
@@ -45,7 +46,6 @@ export async function POST(request: Request) {
     }
   }
 
-  const supabase = createClient();
   const { data, error } = await supabase
     .from("posts")
     .insert({ author_id: userId, content, image_url: imageUrl })

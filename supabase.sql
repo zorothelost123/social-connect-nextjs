@@ -181,3 +181,32 @@ DROP POLICY IF EXISTS "follows_owner_delete" ON follows;
 CREATE POLICY "follows_owner_delete" ON follows
 FOR DELETE
 USING (auth.uid() = follower_id);
+
+-- 6) Storage bucket + policies for avatars/posts uploads
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('social_images', 'social_images', true)
+ON CONFLICT (id) DO NOTHING;
+
+DROP POLICY IF EXISTS "social_images_public_read" ON storage.objects;
+CREATE POLICY "social_images_public_read" ON storage.objects
+FOR SELECT
+USING (bucket_id = 'social_images');
+
+DROP POLICY IF EXISTS "social_images_authenticated_upload" ON storage.objects;
+CREATE POLICY "social_images_authenticated_upload" ON storage.objects
+FOR INSERT
+TO authenticated
+WITH CHECK (bucket_id = 'social_images');
+
+DROP POLICY IF EXISTS "social_images_authenticated_update" ON storage.objects;
+CREATE POLICY "social_images_authenticated_update" ON storage.objects
+FOR UPDATE
+TO authenticated
+USING (bucket_id = 'social_images')
+WITH CHECK (bucket_id = 'social_images');
+
+DROP POLICY IF EXISTS "social_images_authenticated_delete" ON storage.objects;
+CREATE POLICY "social_images_authenticated_delete" ON storage.objects
+FOR DELETE
+TO authenticated
+USING (bucket_id = 'social_images');

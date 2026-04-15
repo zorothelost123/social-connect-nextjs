@@ -4,6 +4,7 @@ import { uploadImage } from "@/lib/storage";
 import { createClient } from "@/lib/supabase/server";
 
 export async function POST(request: Request) {
+  const supabase = createClient();
   const userId = await getCurrentUserId();
   if (!userId) return jsonError("Unauthorized", 401);
 
@@ -16,7 +17,7 @@ export async function POST(request: Request) {
 
   let avatarUrl = "";
   try {
-    avatarUrl = await uploadImage(file, "avatars");
+    avatarUrl = await uploadImage(file, "avatars", supabase);
   } catch (error) {
     return jsonError(
       error instanceof Error ? error.message : "Avatar upload failed.",
@@ -24,7 +25,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const supabase = createClient();
   const { data, error } = await supabase
     .from("profiles")
     .update({ avatar_url: avatarUrl })
