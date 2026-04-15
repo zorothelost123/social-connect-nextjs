@@ -36,8 +36,8 @@ export default function Home() {
               <span className="bg-brand-gradient bg-clip-text text-transparent"> Clutter</span>
             </h1>
             <p className="mt-4 max-w-xl text-muted-foreground">
-              Build your profile, post moments, like, comment, and discover people in
-              a clean, modern, fast social app powered by Next.js + Supabase.
+              Build your profile, share moments, join conversations, and discover people in
+              a clean, modern social experience.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -55,10 +55,9 @@ export default function Home() {
               </Link>
             </div>
             <div className="mt-5 rounded-xl border bg-card/80 p-3 text-xs text-muted-foreground">
-              <p className="font-semibold text-foreground">Demo mode for Loom</p>
+              <p className="font-semibold text-foreground">Quick start flow</p>
               <p className="mt-1">
-                Quick flow: register - update profile - create post - like/comment - follow from
-                explore.
+                Register - update profile - create a post - like/comment - follow from explore.
               </p>
             </div>
           </div>
@@ -85,12 +84,12 @@ export default function Home() {
             </ol>
           </div>
           <div className="rounded-2xl border bg-card/90 p-5 backdrop-blur md:col-span-3">
-            <h3 className="font-semibold">Core Highlights</h3>
+            <h3 className="font-semibold">Why people use SocialConnect</h3>
             <div className="mt-3 grid gap-3 md:grid-cols-3">
               {[
-                "JWT auth with protected routes",
-                "Fast image posts with Supabase Storage",
-                "Interactive likes/comments with live counts",
+                "Private accounts and secure sessions",
+                "Fast photo sharing with a smooth feed",
+                "Interactive likes and comments in real time",
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-xl border p-3">
                   <Check className="mt-0.5 h-4 w-4 text-brand-500" />

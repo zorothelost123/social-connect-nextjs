@@ -1,1 +1,1 @@
-export { POST } from "./AvatarRoute";
+export { POST } from "./AvatarRoute2";

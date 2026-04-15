@@ -1,1 +1,1 @@
-export { GET, POST } from "./PostsRoute";
+export { GET, POST } from "./PostsRoute2";

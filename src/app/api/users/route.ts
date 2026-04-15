@@ -1,1 +1,1 @@
-export { GET } from "./UsersRoute";
+export { GET } from "./UserRoute2";

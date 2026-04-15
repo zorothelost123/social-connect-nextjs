@@ -1,1 +1,1 @@
-export { POST, DELETE } from "./FollowRoute";
+export { POST, DELETE } from "./FollowRoute2";

@@ -1,1 +1,1 @@
-export { POST, DELETE } from "./LikeRoute";
+export { POST, DELETE } from "./LikeRoute2";

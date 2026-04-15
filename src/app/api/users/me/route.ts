@@ -1,1 +1,1 @@
-export { PATCH, PUT } from "./MeRoute";
+export { PATCH, PUT } from "./MeRoute2";

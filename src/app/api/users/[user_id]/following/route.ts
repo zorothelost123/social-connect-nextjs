@@ -1,1 +1,1 @@
-export { GET } from "./FollowingRoute";
+export { GET } from "./FollowingRoute2";

@@ -1,1 +1,1 @@
-export { GET } from "./FollowersRoute";
+export { GET } from "./FollowersRoute2";

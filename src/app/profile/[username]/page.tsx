@@ -1,1 +1,1 @@
-export { default } from "./ProLifeUserPage";
+export { default } from "./UserNameProfilePage";

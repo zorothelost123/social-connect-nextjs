@@ -1,1 +1,1 @@
-export { GET } from "./User_IDRoute";
+export { GET } from "./User_ID2Route";

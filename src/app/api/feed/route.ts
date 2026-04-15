@@ -1,1 +1,1 @@
-export { GET } from "./FeedRoute";
+export { GET } from "./FeedRoute2";

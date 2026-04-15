@@ -1,1 +1,1 @@
-export { POST } from "./logoutroute";
+export { POST } from "./LogoutRoute2";

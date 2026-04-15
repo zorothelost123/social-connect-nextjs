@@ -1,1 +1,1 @@
-export { default } from "./Posts_IDPage";
+export { default } from "./Posts_ID2Page";

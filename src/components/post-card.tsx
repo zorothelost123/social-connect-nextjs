@@ -41,6 +41,14 @@ export function PostCard({
   currentUserId,
   allowDeletePost = false,
 }: Props) {
+  const postTimestamp = new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  }).format(new Date(post.created_at));
+
   const router = useRouter();
   const [liked, setLiked] = useState(initialLiked);
   const [likesCount, setLikesCount] = useState(initialLikeCount ?? post.like_count ?? 0);
@@ -204,7 +212,7 @@ export function PostCard({
               {post.profiles?.is_pro && <Crown className="h-3 w-3 text-primary fill-primary" />}
             </div>
             <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
-              {new Date(post.created_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+              {postTimestamp}
             </p>
           </div>
         </div>
