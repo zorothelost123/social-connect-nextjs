@@ -63,7 +63,7 @@ export default async function FeedPage() {
     .select("id,username,is_pro")
     .neq("id", user.id)
     .limit(6);
-
+//comment is addedd
   return (
     <main className="mx-auto grid min-h-screen w-full max-w-[1440px] grid-cols-1 gap-6 p-6 pb-24 lg:grid-cols-[20%_1fr_30%] lg:pb-6">
       <aside className="glass-sidebar sticky top-6 hidden h-fit rounded-2xl border p-6 lg:block">
