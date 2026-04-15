@@ -13,7 +13,7 @@ export function LogoutActionButton() {
     const res = await fetch("/api/auth/logout", { method: "POST" });
     setLoading(false);
     if (!res.ok) return;
-    router.push("/login");
+    router.push("/");
     router.refresh();
   }
 

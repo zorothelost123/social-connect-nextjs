@@ -8,6 +8,7 @@ type Props = { mode: "login" | "register" };
 export function AuthForm({ mode }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const router = useRouter();
 
   async function handleSubmit(formData: FormData) {
@@ -31,6 +32,7 @@ export function AuthForm({ mode }: Props) {
       return;
     }
 
+    setSuccess(mode === "register" ? "Account created! Redirecting..." : "Logged in! Redirecting...");
     router.push("/feed");
     router.refresh();
   }
@@ -72,6 +74,7 @@ export function AuthForm({ mode }: Props) {
         className="w-full rounded-2xl border-none bg-muted px-5 py-3.5 text-sm focus:ring-2 focus:ring-primary/20"
       />
       {error && <p className="text-sm font-semibold text-rose-500 animate-shake">{error}</p>}
+      {success && <p className="text-sm font-semibold text-green-600">{success}</p>}
       <button
         type="submit"
         disabled={loading}
